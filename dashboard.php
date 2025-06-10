@@ -123,6 +123,8 @@ if (isset($_GET['page'])) {
                                         echo 'Dashboard';
                                     } elseif ($_SESSION['ShowDashboard'] == 'Calendar') {
                                         echo 'Calendar';
+                                    } elseif ($_SESSION['ShowDashboard'] == 'AdminYNM') {
+                                        echo 'Manage Freelancers Show';
                                     } else {
                                         echo 'Dashboard';
                                     }
@@ -164,8 +166,8 @@ if (isset($_GET['page'])) {
                             include 'components/school_information.php';
                             // Added This
                         } elseif ($_SESSION['ShowDashboard'] == 'AdminYNM') {
-                            include 'components/freelance.php';
-                            // I added this
+                            // Manage Freelancers Show
+                            include 'components/admin_ynm.php';
                         } elseif ($_SESSION['ShowDashboard'] == 'Calendar') {
                             // Calendar
                             include 'components/calendar.php';
@@ -234,6 +236,8 @@ if (isset($_GET['page'])) {
                     pageToMatch = '?page=whatsApp';
                 } else if (currentPage === 'schoolinformation') {
                     pageToMatch = '?page=school_information';
+                } else if (currentPage === 'adminynm') {
+                    pageToMatch = '?page=admin_ynm';
                 }
                 if (href === pageToMatch) {
                     $(this).closest('.sidebar-list').addClass('active');
